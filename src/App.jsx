@@ -5,9 +5,13 @@ import Draggable from './components/Draggable';
 function App() {
 
   const [parentsNum, setParentsNum] = useState(0);
-
+  const [showAlert, setShowAlert] = useState(true);
   const handleAddingParent = () => {
     setParentsNum(parentsNum + 1)
+    if (showAlert && ((parentsNum + 1) * 100 > window.innerWidth || (parentsNum + 1) * 100 > window.innerHeight)) {
+      alert('The box dimensions will be reduced to help them fit better inside the window. This might affect how the box looks.')
+      setShowAlert(false);
+    }
   }
 
   const handleDefault = (e) => {

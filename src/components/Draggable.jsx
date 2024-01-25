@@ -5,7 +5,8 @@ const Draggable = ({ root, handleDefault, id, ind, parentsNum }) => {
     const [clientTop, setClientTop] = useState(0);
     const [clientLeft, setClientLeft] = useState(0);
     const [initialDrag, setInitialDrag] = useState();
-
+    const [minWidth, setMinWidth] = useState(100);
+    const [fontSize, setFontSize] = useState(16);
     function handleDragStart(e) {
         e.stopPropagation();
         console.log(e, id);
@@ -28,17 +29,17 @@ const Draggable = ({ root, handleDefault, id, ind, parentsNum }) => {
         let bounds = {};
         console.log(root)
         if (!root) {
-            bounds.x = (id + 1) * 100;
-            bounds.y = (id + 1) * 100 -23;
+            bounds.x = (id + 1) * minWidth;
+            bounds.y = (id + 1) * minWidth - 23;
         } else {
             bounds.x = window.innerWidth;
             bounds.y = window.innerHeight;
         }
 
-        if (left + id * 100 < bounds.x && left > 0) {
+        if (left + id * minWidth < bounds.x && left > 0) {
             setClientLeft(left);
         }
-        if (top + id * 100 < bounds.y && top > 0) {
+        if (top + id * minWidth < bounds.y && top > 0) {
             setClientTop(top);
         }
 
@@ -51,11 +52,14 @@ const Draggable = ({ root, handleDefault, id, ind, parentsNum }) => {
 
     useEffect(() => {
         if (root) {
-            const boundsX = window.innerWidth - id * 100;
-            const boundsY = window.innerHeight - id * 100;
-
+            const boundsX = window.innerWidth - id * minWidth;
+            const boundsY = window.innerHeight - id * minWidth;
             setClientLeft((prevLeft) => Math.min(prevLeft, boundsX));
             setClientTop((prevTop) => Math.min(prevTop, boundsY));
+        }
+        if (parentsNum * minWidth > window.innerWidth || parentsNum * minWidth > window.innerHeight) {
+                setMinWidth(minWidth / 2);
+                setFontSize(fontSize / 2);
         }
     }, [parentsNum, root, id]);
     return (
@@ -69,15 +73,15 @@ const Draggable = ({ root, handleDefault, id, ind, parentsNum }) => {
                 border: '1px solid grey',
                 top: clientTop,
                 left: clientLeft,
-                width: id * 100,
-                height: id * 100,
+                width: id * minWidth,
+                height: id * minWidth,
             }}
         >
             <div
                 draggable
                 onDragStart={handleDragStart}
                 onDrag={handleDrag}
-                style={{ cursor: 'grab', border: '1px solid grey', }}
+                style={{ cursor: 'grab', border: '1px solid grey', fontSize: fontSize, }}
             >
                 Title Bar {id}
             </div>
