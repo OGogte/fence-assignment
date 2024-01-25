@@ -4,7 +4,7 @@ import Draggable from './components/Draggable';
 
 function App() {
 
-  const [parentsNum, setParentsNum] = useState(0);
+  const [parentsNum, setParentsNum] = useState(1);
   const [showAlert, setShowAlert] = useState(true);
   const handleAddingParent = () => {
     setParentsNum(parentsNum + 1)
@@ -24,7 +24,7 @@ function App() {
         <button onClick={handleAddingParent}>Add Parent</button>
       </div>
       <div>
-        {parentsNum > 0 && <Draggable root={true} id={parentsNum} ind={1} handleDefault={handleDefault} parentsNum={parentsNum} />}
+         <Draggable root={true} id={parentsNum} ind={1} handleDefault={handleDefault} parentsNum={parentsNum} />
       </div>
     </div>
   );
