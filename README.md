@@ -6,12 +6,12 @@ Deployed Link - https://fence-assignment.netlify.app/
 
 #### Clone
 ```bash
-git clone https://github.com/OGogte/swipe-assignment-frontend.git
+git clone https://github.com/OGogte/fence-assignment.git
 ```
 
 #### Navigate to the Project directory
 ```bash
-cd swipe-assignment-frontend
+cd fence-assignment
 ```
 
 #### Install Dependencies
