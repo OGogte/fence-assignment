@@ -1,8 +1,26 @@
-# React + Vite
+# Fence Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Deployed Link - https://fence-assignment.netlify.app/
 
-Currently, two official plugins are available:
+### Try on your Machine
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Clone
+```bash
+git clone https://github.com/OGogte/swipe-assignment-frontend.git
+```
+
+#### Navigate to the Project directory
+```bash
+cd swipe-assignment-frontend
+```
+
+#### Install Dependencies
+```bash
+npm i
+```
+
+#### Run Project
+```bash
+npm run dev
+```
+
